@@ -1,0 +1,47 @@
+{
+    "_comment":
+    "//# Enter Account ID (can be found in the account console)",
+    "account_host": "https://accounts.cloud.databricks.com",
+    "account_id": "00000009-0000-0000-00000000000000007",
+
+    "_comment1":"//# Your workspace url",
+    "host": "https://uc-demo.cloud.databricks.com",
+
+    "_comment2":
+    ["# Service Principal: roleswitcher-sp",
+    "# The service principal needs account admin permissions",
+    "# Create a service principal, then add the 'Account id' aka 'UUID' is used here:"],
+    "client_id": "00000002-0000-0000-0000-000000000000",
+
+    "_comment3" : "# Create an OAUTH Secret, a value that starts with 'dose' goes here",
+    "client_secret": "dose00000000000000000000000000000000",
+
+    "_comment4":
+    ["# Service Principal information",
+     "#   Service principal needs 'CREATE CATALOG' permission on the metastore for the workspace"],
+
+    "sp_display_name": "roleswitcher-sp",
+    "sp_id": "0000000000000000",
+
+    "_comment5":"# aka: client_id, application_id, userName",
+    "sp_application_id": "0000000a-0000-0000-0000-000000000000",
+
+    "_comment6":"# warehouse_id: The SQL warehouse (Serverless preferred) used to run create table statements for demo setup",
+    "warehouse_id": "0000000000000000",
+
+    "_comment7":
+    ["# roles / groups",
+    "# Populate this array with the groups representing the roles users can assume."],
+    "roles" : ["acme-role-1",
+                 "acme-role-2",
+                 "acme-role-3",
+                 "acme-role-4",
+                 "acme-role-5",
+                 "acme-role-6"],
+
+    "catalog_name": "uc_intent_based_access",
+
+    "_comment7":"# group to administer role switching",
+    "role_switcher_admin" : "role-switcher-admin"
+}
+
