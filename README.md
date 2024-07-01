@@ -18,6 +18,27 @@ After an edit, run `make test`
 Before commit, run `make check`
 Consult the `Makefile` for other build options.
 
+## Using the Project
+
+### Pre-requisites
+- UC Enabled workspace
+- UC Enabled cluster ( > DBR 13.3 LTS )
+- Account Level Service Principal (Admin entitlement) w/ OAUTH secret
+- 3 to N 'role' level groups. These account level groups will govern access to data and compute resources. A service principal will be dynamically assigned to these, one at a time.
+- One 'role-switcher' group, these are the principals authorized to use the role-switcher solution accelerator.
+- Networking: Customer dataplane to databricks control plane network path for https REST API calls
+- Group Management:
+  - Remove users from other mechanisms to the groups that roleswitcher manages through thoughtful design of the groups
+- Access Management:
+  - Remove alternate access to protected resources via groups outside of roleswitcher (remove side doors and backdoors)
+
+### Usage
+- Import archive or mount Repo
+- Download config.json, update the configuration information, load that into a secret scope=`uc-rolehelper`, key=`config`
+- Open notebooks / Role Switch Demo
+- Attach to UC enabled cluster
+- Run
+
 ## Deploying / Installing the Project
 Instructions for how to deploy the project, or install it
 
@@ -33,23 +54,3 @@ make install-dev
 make style
 make test
 ```
-
-## Using the Project
-
-### Pre-requisites
-- UC Enabled workspace
-- UC Enabled cluster ( > DBR 13.3 LTS )
-- Account Level Service Principal (Admin entitlement) w/ OAUTH secret
-- 3-N 'role' level groups. These account level groups will govern access to data and compute resources. A service principal will be dynamically assigned to these, one at a time.
-- One 'role-switcher' group, these are the principals authorized to use the role-switcher solution accelerator.
-- Networking: Customer dataplane to databricks control plane network path for https REST API calls
-- Group Management:
-  - Remove users from other mechanisms to the groups that roleswitcher manages through thoughtful design of the groups
-- Access Management:
-  - Remove alternate access to protected resources via groups outside of roleswitcher (remove side doors and backdoors)
-
-### Usage
-- Import archive or mount Repo
-- Open notebooks / Role Switch Demo
-- Attach to UC enabled cluster
-- Run
