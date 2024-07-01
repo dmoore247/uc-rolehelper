@@ -11,13 +11,6 @@ Any issues discovered through the use of this project should be filed as GitHub 
 
 Please reach out to your local Data Governance Specialilst.
 
-## Building the Project
-Instructions for how to build the project
-
-After an edit, run `make test`
-Before commit, run `make check`
-Consult the `Makefile` for other build options.
-
 ## Using the Project
 
 ### Pre-requisites
@@ -32,17 +25,22 @@ Consult the `Makefile` for other build options.
 - Access Management:
   - Remove alternate access to protected resources via groups outside of roleswitcher (remove side doors and backdoors)
 
-### Usage
-- Import archive or mount Repo
-- Download config.json, update the configuration information, load that into a secret scope=`uc-rolehelper`, key=`config`
-- Open notebooks / Role Switch Demo
+## Deploying / Installing the Project
+Instructions for how to deploy the project, or install it
+- Fork the github repo, add the REPO to your workspace
+- Download [config.json](./config.json),
+  - update the configuration information,
+  - use [`load-config.sh`](./load-config.sh) to load that into a secret scope=`uc-rolehelper`, key=`config` (Do not commit your version to github as it may contain secrets).
+- Open `notebooks/Role Switch Demo`
 - Attach to UC enabled cluster
 - Run
 
-## Deploying / Installing the Project
-Instructions for how to deploy the project, or install it
+## Building the Project
+Instructions for how to build the project
 
-TBD
+After an edit, run `make test`
+Before commit, run `make check`
+Consult the `Makefile` for other build options.
 
 ## Releasing the Project
 Instructions for how to release a version of the project
